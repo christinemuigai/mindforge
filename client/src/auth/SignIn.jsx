@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function SignIn() {
+export default function SignIn({authorizeUser}) {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState(false);
@@ -13,7 +13,7 @@ export default function SignIn() {
 
     if (!login) return setError('Please enter your login or email.');
     if (password.length < 6) return setError('Password must be at least 6 characters.');
-
+    authorizeUser();
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -71,8 +71,7 @@ export default function SignIn() {
                   value={login}
                   onChange={(e) => setLogin(e.target.value)}
                   className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-300"
-                  placeholder="Enter your login or email"
-                />
+                  placeholder="Enter your login or email"/>
               </div>
 
               <div>
@@ -82,8 +81,7 @@ export default function SignIn() {
                   onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-300"
-                  placeholder="Enter password"
-                />
+                  placeholder="Enter password"/>
                 <div className="text-xs text-gray-400 mt-1">Password must contain at least 6 symbols</div>
               </div>
 
