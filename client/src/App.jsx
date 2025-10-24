@@ -1,10 +1,10 @@
 import React from 'react';
-import SignIn from './auth/SignIn';
+import Chatbot from './pages/chatbot';
 
 const App = () => {
   return (
-    <div className="w-full h-screen bg-blue-500">
-      <SignIn/>
+    <div>
+    <Chatbot/>
     </div>
   );
 }
